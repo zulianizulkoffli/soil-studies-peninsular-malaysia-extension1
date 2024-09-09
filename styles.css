@@ -1,0 +1,55 @@
+.sidebar .sidebar-content {
+    background-color: #367595;
+    color: white;
+}
+
+.sidebar .stSelectbox label {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.sidebar .filter-options {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.sidebar .stSelectbox {
+    color: white;
+    font-size: 2em;
+}
+
+.table-no-border {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-no-border th, .table-no-border td {
+    padding: 10px;
+    font-size: 1.25em;
+    font-weight: bold;
+    border: none;
+}
+
+.table-no-border th {
+    text-align: left;
+}
+
+.table-no-border td {
+    text-align: right;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.table-content {
+    width: 60%; /* Adjust the width to fit within the specified area */
+    padding: 10px;
+    border: 1px solid #ccc; /* Add a border to the box */
+    background-color: #f9f9f9; /* Optional: Add a background color to the box */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow to the box */
+}

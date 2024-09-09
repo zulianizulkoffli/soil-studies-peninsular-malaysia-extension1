@@ -4,3 +4,4 @@ numpy
 setuptools
 wheel
 folium
+streamlit_folium

@@ -19,8 +19,8 @@ if os.path.exists(css_file_path):
 else:
     st.error("CSS file not found.")
 
-# Load your dataset
-data_url = r'C:\Users\zzulk\Downloads\hj1\Data_For_Viz.csv'  # Adjust the path as needed
+# Load your dataset from GitHub
+data_url = 'https://raw.githubusercontent.com/zulianizulkoffli/soil-studies-peninsular-malaysia-extension1/main/Data_For_Viz.csv'  # Replace with your actual GitHub URL
 
 # Attempt to load the dataset with multiple encoding attempts
 try:

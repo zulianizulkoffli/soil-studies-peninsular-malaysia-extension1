@@ -5,3 +5,4 @@ matplotlib==3.4.3
 seaborn==0.11.2
 folium==0.12.1
 streamlit-folium==0.2.0
+setuptools>=40.0

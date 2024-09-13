@@ -147,10 +147,10 @@ if 'data' in locals():
                 st.write("## Depth vs Parameters")
                 parameters = ['Clay (%)', 'Silt (%)', 'Sand (%)', 'Moisture content (%)']
                 
-                # Arrange graphs in rows of three
-                for i in range(0, len(parameters), 3):
-                    cols = st.columns(3)  # Create three columns
-                    for col, param in zip(cols, parameters[i:i+3]):  # Iterate over columns and parameters
+                # Arrange graphs in rows of two
+                for i in range(0, len(parameters),2):
+                    cols = st.columns(2)  # Create three columns
+                    for col, param in zip(cols, parameters[i:i+2]):  # Iterate over columns and parameters
                         fig = px.line(filtered_data, y='Depth (m)', x=param, 
                                       title=f'Depth vs {param}', 
                                       labels={'y': 'Depth (m)', 'x': param})

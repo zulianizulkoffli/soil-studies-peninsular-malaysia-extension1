@@ -146,12 +146,16 @@ if 'data' in locals():
                 # Plot depth vs parameters chart with depth on y-axis
                 st.write("## Depth vs Parameters")
                 parameters = ['Clay (%)', 'Silt (%)', 'Sand (%)', 'Moisture content (%)']
-                for param in parameters:
-                    fig = px.line(filtered_data, y='Depth (m)', x=param, 
-                                  title=f'Depth vs {param}', 
-                                  labels={'y': 'Depth (m)', 'x': param})
-                    fig.update_yaxes(autorange="reversed")  # Invert y-axis to display depth from top to bottom
-                    st.plotly_chart(fig)
+                
+                # Arrange graphs in rows of three
+                for i in range(0, len(parameters), 3):
+                    cols = st.columns(3)  # Create three columns
+                    for col, param in zip(cols, parameters[i:i+3]):  # Iterate over columns and parameters
+                        fig = px.line(filtered_data, y='Depth (m)', x=param, 
+                                      title=f'Depth vs {param}', 
+                                      labels={'y': 'Depth (m)', 'x': param})
+                        fig.update_yaxes(autorange="reversed")  # Invert y-axis to display depth from top to bottom
+                        col.plotly_chart(fig, use_container_width=True)
 
                 # Add extra space below the data table
                 st.markdown("<div style='margin-bottom: 3in;'></div>", unsafe_allow_html=True)

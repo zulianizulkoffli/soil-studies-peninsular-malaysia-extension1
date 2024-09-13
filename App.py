@@ -9,6 +9,7 @@ import streamlit as st
 import pandas as pd
 import folium
 from streamlit_folium import folium_static
+import plotly.express as px
 import os
 
 # Load CSS file
@@ -136,11 +137,21 @@ if 'data' in locals():
                 st.markdown("</div>", unsafe_allow_html=True)
 
                 # Display filtered data below the map
-                st.write("## Raw Data Acquisited at Tested Location")
+                st.write("## Raw Data Acquired at Tested Location")
                 st.dataframe(filtered_data)
 
                 # Add a note below the data table
                 st.markdown("<p style='text-align: center; font-style: italic; color: gray;'>0 = Nil data (non-numerical values replaced by 0)</p>", unsafe_allow_html=True)
+
+                # Plot depth vs parameters chart with depth on y-axis
+                st.write("## Depth vs Parameters")
+                parameters = ['Clay (%)', 'Silt (%)', 'Sand (%)', 'Moisture content (%)']
+                for param in parameters:
+                    fig = px.line(filtered_data, y='Depth (m)', x=param, 
+                                  title=f'Depth vs {param}', 
+                                  labels={'y': 'Depth (m)', 'x': param})
+                    fig.update_yaxes(autorange="reversed")  # Invert y-axis to display depth from top to bottom
+                    st.plotly_chart(fig)
 
                 # Add extra space below the data table
                 st.markdown("<div style='margin-bottom: 3in;'></div>", unsafe_allow_html=True)
